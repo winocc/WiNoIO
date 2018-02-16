@@ -65,11 +65,12 @@ void WiNoIO::setDebug(boolean status)
 
 uint16_t WiNoIO::getLabel()
 {
-	return 0;
+	return currentConfig.label;
 }
 
 void WiNoIO::setLabel(uint16_t label)
 {
+	currentConfig.label = label;
 	if ( _debug ) Serial.println("WINOIO\t Node address set");
 }
 
@@ -80,8 +81,8 @@ uint8_t WiNoIO::getTrxSckPin()
 
 void WiNoIO::setTrxSckPin(uint8_t trxSckPin)
 {
-	if ( _debug ) Serial.println("WINOIO\t Node address set");
 	currentConfig.trxSckPin = trxSckPin;
+	if ( _debug ) Serial.println("WINOIO\t Node address set");
 }
 
 void WiNoIO::setCurrentConfig (	uint16_t label,
