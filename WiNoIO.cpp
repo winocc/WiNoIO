@@ -133,11 +133,26 @@ bool WiNoIO::rgbDraw(uint8_t red, uint8_t green, uint8_t blue)
 	if ( currentConfig.ledType == LED_TYPE_NO_LED ) return false;
 	if ( currentConfig.ledType == LED_TYPE_REVERTED )
 	{
-		if ( red == 0 ) digitalWrite(currentConfig.rgbLedRedPin, HIGH);
+		// If color is 0, disable PWM and set HIGH level to fully disable the LED
+		if ( red == 0 )
+		{
+			analogWrite(currentConfig.rgbLedRedPin, 0);
+			digitalWrite(currentConfig.rgbLedRedPin, HIGH);
+		}
 		else analogWrite(currentConfig.rgbLedRedPin, 255-red);
-		if ( green == 0 ) digitalWrite(currentConfig.rgbLedGreenPin, HIGH);
+
+		if ( green == 0 )
+		{
+			analogWrite(currentConfig.rgbLedGreenPin, 0);
+			digitalWrite(currentConfig.rgbLedGreenPin, HIGH);
+		}
 		else analogWrite(currentConfig.rgbLedGreenPin, 255-green);
-		if ( blue == 0 ) digitalWrite(currentConfig.rgbLedBluePin, HIGH);
+		
+		if ( blue == 0 )
+		{
+			analogWrite(currentConfig.rgbLedBluePin, 0);
+			digitalWrite(currentConfig.rgbLedBluePin, HIGH);
+		}
 		else analogWrite(currentConfig.rgbLedBluePin, 255-blue);
 	}
 	else
