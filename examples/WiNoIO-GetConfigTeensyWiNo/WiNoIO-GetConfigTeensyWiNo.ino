@@ -3,6 +3,7 @@
 // and use it to configure the transceiver. Then a sniffer is executed on the node
 // by Adrien van den Bossche <vandenbo@univ-tlse2.fr>
 
+#include <EEPROM.h>
 #include <RH_RF22.h>
 #include <WiNoIO.h>
 

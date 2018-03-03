@@ -1,7 +1,6 @@
 // WiNoIO.cpp
 // 
 
-#include <SPI.h>
 #include <EEPROM.h>
 #include "WiNoIO.h"
 

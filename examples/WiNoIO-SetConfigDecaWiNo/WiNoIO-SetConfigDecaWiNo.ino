@@ -2,6 +2,7 @@
 // This sketch shows how to use the WiNoIO library to set/get a valid configuration for the DecaWiNo
 // by Adrien van den Bossche <vandenbo@univ-tlse2.fr>
 
+#include <EEPROM.h>
 #include <WiNoIO.h>
 
 WiNoIO wino;

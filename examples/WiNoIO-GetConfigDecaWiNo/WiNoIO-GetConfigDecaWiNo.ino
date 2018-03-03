@@ -3,6 +3,7 @@
 // and use it to configure the transceiver. Then a sniffer is executed on the node
 // by Adrien van den Bossche <vandenbo@univ-tlse2.fr>
 
+#include <EEPROM.h>
 #include <SPI.h>
 #include <DecaDuino.h>
 #include <WiNoIO.h>
