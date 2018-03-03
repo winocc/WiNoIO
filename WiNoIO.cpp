@@ -133,9 +133,12 @@ bool WiNoIO::rgbDraw(uint8_t red, uint8_t green, uint8_t blue)
 	if ( currentConfig.ledType == LED_TYPE_NO_LED ) return false;
 	if ( currentConfig.ledType == LED_TYPE_REVERTED )
 	{
-		analogWrite(currentConfig.rgbLedRedPin, 255-red);
-		analogWrite(currentConfig.rgbLedGreenPin, 255-green);
-		analogWrite(currentConfig.rgbLedBluePin, 255-blue);
+		if ( red == 0 ) digitalWrite(currentConfig.rgbLedRedPin, HIGH);
+		else analogWrite(currentConfig.rgbLedRedPin, 255-red);
+		if ( green == 0 ) digitalWrite(currentConfig.rgbLedGreenPin, HIGH);
+		else analogWrite(currentConfig.rgbLedGreenPin, 255-green);
+		if ( blue == 0 ) digitalWrite(currentConfig.rgbLedBluePin, HIGH);
+		else analogWrite(currentConfig.rgbLedBluePin, 255-blue);
 	}
 	else
 	{
